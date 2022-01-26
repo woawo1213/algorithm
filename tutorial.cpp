@@ -5,7 +5,6 @@ int main()
 {
     {
         /* type */
-        cout << endl;
         cout << "######################type######################" << endl;
         cout << endl;
         string a = "wow fantastic";
@@ -23,7 +22,6 @@ int main()
 
     {
         /* enter */
-        cout << endl;
         cout << "######################enter######################" << endl;
         cout << endl;
         // cin은 개행문자(띄어쓰기, 엔터)구분함
@@ -42,7 +40,6 @@ int main()
 
     {
         /* printf */
-        cout << endl;
         cout << "######################printf######################" << endl;
         cout << endl;
         //띄어쓰기는 cout<< [ ] << " ";
@@ -58,7 +55,6 @@ int main()
 
     {
         /* type change */
-        cout << endl;
         cout << "######################type change######################" << endl;
         cout << endl;
         double ret = 2.12345;
@@ -74,7 +70,6 @@ int main()
 
     {
         /* string */
-        cout << endl;
         cout << "######################string######################" << endl;
         cout << endl;
         string dopa = "life is good";
@@ -86,9 +81,84 @@ int main()
     }
 
     {
-        /* string */
+        /* pair&tuple */
+        cout << "######################pair&tuple######################" << endl;
         cout << endl;
-        cout << "######################string######################" << endl;
+        pair<int, int> pi;
+        tuple<int, int, int> tl;
+        int a, b, c;
+        pi = {1, 2};
+        tl = make_tuple(1, 2, 3);
+        tie(a, b) = pi;
+        cout << a << " : " << b << "\n";
+        tie(a, b, c) = tl;
+        cout << a << " : " << b << " : " << c << "\n";
+    }
+
+    {
+        /* vector */
+        cout << "######################vector######################" << endl;
+        cout << endl;
+        vector<int> v;
+        for (int i = 1; i <= 10; i++)
+            v.push_back(i);
+        for (int a : v)
+            cout << a << " ";
+        cout << "\n";
+        v.pop_back();
+        for (int a : v)
+            cout << a << " ";
+        cout << "\n";
+        v.erase(v.begin(), v.begin() + 1);
+        for (int a : v)
+            cout << a << " ";
+        cout << "\n";
+        auto a = find(v.begin(), v.end(), 100); // find(vector의 함수가 아니라 algorithm에서 제공하는 함수
+        if (a == v.end())
+            cout << "not found" << endl;
+        fill(v.begin(), v.end(), 10);
+        for (int a : v)
+            cout << a << " ";
+        cout << "\n";
+        v.clear();
+        for (int a : v)
+            cout << a << " ";
+        cout << "\n";
+    }
+
+    {
+        /* fill & memset */
+        cout << "######################fill & memset######################" << endl;
+        cout << endl;
+        // vector 초기화 하기
+        int n = 10;
+        vector<int> v[10];   // v벡터를 10개를 생성합니다.
+        vector<int> v(n, 0); // 0이라는 value를 가진 n개의 벡터를 생성
+        // vector로 2차원 배열 매트릭스 만들기
+        vector<vector<int>> checked;
+        vector<vector<int>> v(n + 1, vector<int>(n + 1, 0));
+        // fill로도 초기화할 수 있다.
+        fill(v.begin(), b.end(), 0);
+        //배열초기화 shortcut : 전체 0으로 초기화한다. 일부 컴파일러에서 통하지 않을 수도있습니다.
+        int dp[10] = {
+            0,
+        };
+        int dp[10][10] = {{
+            0,
+        }};
+        fill(dist, dist + MAX_N, 0);
+        //부분초기화 : 0번째를 0, 1번째를 1로 초기화한다.
+        int a[n] = {0, 1};
+        memset(check, 0, sizeof(check));
+        // fill을 사용한 2차원 배열 초기화는 이렇습니다.
+        for (int i = 0; i < 10; i++)
+            fill(dp[i], dp[i] + 10, 0);
+        fill(&arr[0][0], &arr[0][0] + n * m, k) // 이런식으로 한번에 초기화를 할 수 있습니다.
+    }
+
+    {
+        /* algo */
+        cout << "######################algo######################" << endl;
         cout << endl;
     }
 
