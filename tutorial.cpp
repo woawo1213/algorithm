@@ -240,19 +240,47 @@ int main()
             cout << (*it) << ' ';
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* stack */
+        cout << "######################stack######################" << endl;
         cout << endl;
+        //문자열 폭발, 괄호만들기, 짝찾기 등에 쓰임 "교차하지 않고"
+        stack<string> stk;
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        stk.push("um");
+        stk.push("jun");
+        stk.push("sic");
+        while(stk.size())
+        {
+            cout<<stk.top()<<"\n";
+            stk.pop();
+        }
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* queue */
+        cout << "######################queue######################" << endl;
         cout << endl;
+        //BFS
+        queue<int> q;
+        q.push(1);
+        cout<<q.front()<<"\n";
+        q.pop();
+        cout<<q.size()<<"\n";
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* dequeue */
+        cout << "######################dequeue######################" << endl;
         cout << endl;
+        deque<int> dq;
+        dq.push_front(1);
+        dq.push_back(2);
+        dq.push_back(3);
+        cout<<dq.front()<<endl;
+        cout<<dq.back()<<endl;
+        cout<<dq.size()<<endl;
+        dq.pop_back();
+        dq.pop_front();
+        cout<<dq.size()<<endl;
     }
     {
         /* algo */
