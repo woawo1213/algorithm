@@ -152,9 +152,9 @@ int main()
         // memset(check, 0, sizeof(check));
         // fill을 사용한 2차원 배열 초기화는 이렇습니다.
         // for (int i = 0; i < 10; i++)
-            // fill(dp[i], dp[i] + 10, 0);
+        // fill(dp[i], dp[i] + 10, 0);
         // fill(&arr[0][0], &arr[0][0] + n * m, k); // 이런식으로 한번에 초기화를 할 수 있습니다.
-    
+
         //배열복사
         // memcpy(temp,a ,sizeof(a));
     }
@@ -167,33 +167,38 @@ int main()
         // 데이터 삽입 시 정렬되어 삽입 map
         // 정렬 안된 맵 삽입시 unordered_map
         int v[10];
-        unordered_map<string,int>umap;
-        umap.insert({"test1",1});
-        umap.emplace("test4",4);
-        umap["test2"]=2;//권장 방법
+        unordered_map<string, int> umap;
+        umap.insert({"test1", 1});
+        umap.emplace("test4", 4);
+        umap["test2"] = 2; //권장 방법
 
-        for(auto element:umap){
-            cout<<element.first<<" : "<<element.second<<'\n';
+        for (auto element : umap)
+        {
+            cout << element.first << " : " << element.second << '\n';
         }
-        auto search =umap.find("test4");
-        if(search!=umap.end()){
-            cout<<"found: "<<search->first<<" "<<(*search).second<<'\n';
-        }else{
-            cout<<"not found"<<'\n';
+        auto search = umap.find("test4");
+        if (search != umap.end())
+        {
+            cout << "found: " << search->first << " " << (*search).second << '\n';
+        }
+        else
+        {
+            cout << "not found" << '\n';
         }
 
         umap["test1"]++;
         cout << umap["test1"] << "\n";
-        cout <<umap.size() <<"\n";
+        cout << umap.size() << "\n";
         umap.erase("test1");
-        cout <<umap.size() <<"\n";
+        cout << umap.size() << "\n";
 
-        //map 순환시 key=first value=second로 탐색
+        // map 순환시 key=first value=second로 탐색
         map<string, int> _map;
         _map["큰돌"]++;
         _map["큰돌"]++;
-        for(auto c : _map){
-            cout << c.first << " : " << c.second <<"\n";
+        for (auto c : _map)
+        {
+            cout << c.first << " : " << c.second << "\n";
         }
     }
 
@@ -207,7 +212,7 @@ int main()
         _set.insert({"test", 1});
         _set.insert({"test", 1});
         _set.insert({"test", 1});
-        cout <<_set.size() <<"\n";
+        cout << _set.size() << "\n";
     }
     {
         /* multiset */
@@ -250,9 +255,9 @@ int main()
         stk.push("um");
         stk.push("jun");
         stk.push("sic");
-        while(stk.size())
+        while (stk.size())
         {
-            cout<<stk.top()<<"\n";
+            cout << stk.top() << "\n";
             stk.pop();
         }
     }
@@ -260,12 +265,12 @@ int main()
         /* queue */
         cout << "######################queue######################" << endl;
         cout << endl;
-        //BFS
+        // BFS
         queue<int> q;
         q.push(1);
-        cout<<q.front()<<"\n";
+        cout << q.front() << "\n";
         q.pop();
-        cout<<q.size()<<"\n";
+        cout << q.size() << "\n";
     }
     {
         /* dequeue */
@@ -275,12 +280,26 @@ int main()
         dq.push_front(1);
         dq.push_back(2);
         dq.push_back(3);
-        cout<<dq.front()<<endl;
-        cout<<dq.back()<<endl;
-        cout<<dq.size()<<endl;
+        cout << dq.front() << endl;
+        cout << dq.back() << endl;
+        cout << dq.size() << endl;
         dq.pop_back();
         dq.pop_front();
-        cout<<dq.size()<<endl;
+        cout << dq.size() << endl;
+    }
+    {
+        /* pqueue */
+        cout << "######################pqueue######################" << endl;
+        cout << endl;
+        //다익스트라, 그리드
+        priority_queue<int, vector<int>, greater<int>> pq;
+        // priority_queue<int, vector<int>, less<int>>pq;
+        pq.push(5);
+        pq.push(4);
+        pq.push(3);
+        pq.push(2);
+        pq.push(1);
+        cout << pq.top() << endl;
     }
     {
         /* algo */
@@ -302,13 +321,6 @@ int main()
         cout << "######################algo######################" << endl;
         cout << endl;
     }
-    {
-        /* algo */
-        cout << "######################algo######################" << endl;
-        cout << endl;
-    }
-
-
 
     return 0;
 }
