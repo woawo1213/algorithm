@@ -1,6 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+void printV(vector<int> &v)
+{
+    for(int i = 0; i < v.size(); i++)
+    {
+        cout<< v[i] <<" ";
+    }
+    cout<< "\n";
+}
+vector<string> split(string input, string delimiter)
+{
+    vector<string>ret;
+    long long pos=0;
+    string token="";
+    while((pos=input.find(del)))
+    
+}
 int main()
 {
     {
@@ -302,25 +318,61 @@ int main()
         cout << pq.top() << endl;
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* permutation */
+        cout << "######################permutation######################" << endl;
         cout << endl;
-    }
-    {
-        /* algo */
-        cout << "######################algo######################" << endl;
-        cout << endl;
-    }
-    {
-        /* algo */
-        cout << "######################algo######################" << endl;
-        cout << endl;
-    }
-    {
-        /* algo */
-        cout << "######################algo######################" << endl;
-        cout << endl;
-    }
+        int a[3]={1,2,3};
+        vector<int> v;
+        for(int i=0;i<3;i++) v.push_back(a[i]);
+        do
+        {
+            printV(v);
+        }while(next_permutation(v.begin(),v.end()));
+        cout<<"---------------------------"<<endl;
+        v.clear();
+        for(int i = 2; i >= 0; i--)v.push_back(a[i]);
+        do
+        {
+            printV(v);
+        }while(next_permutation(v.begin(),v.end()));        
 
+    }
+    {
+        /* string split */
+        cout << "######################string split######################" << endl;
+        cout << endl;
+        
+
+    }
+    {
+        /* algo */
+        cout << "######################algo######################" << endl;
+        cout << endl;
+    }
+    {
+        /* algo */
+        cout << "######################algo######################" << endl;
+        cout << endl;
+    }
+    {
+        /* algo */
+        cout << "######################algo######################" << endl;
+        cout << endl;
+    }
+    {
+        /* algo */
+        cout << "######################algo######################" << endl;
+        cout << endl;
+    }
+    {
+        /* algo */
+        cout << "######################algo######################" << endl;
+        cout << endl;
+    }
+    {
+        /* algo */
+        cout << "######################algo######################" << endl;
+        cout << endl;
+    }
     return 0;
 }
