@@ -14,8 +14,22 @@ vector<string> split(string input, string delimiter)
     vector<string>ret;
     long long pos=0;
     string token="";
-    while((pos=input.find(del)))
-    
+    while((pos=input.find(delimiter))!=string::npos)
+    {
+        token=input.substr(0,pos);
+            ret.push_back(token);
+        input.erase(0,pos+delimiter.length());
+    }
+    ret.push_back(input);
+    return ret;
+}
+bool cmp(int a, int b)
+{
+    return a>b;
+}
+void b(int a[][5])
+{
+    a[0][4]=44;
 }
 int main()
 {
@@ -341,38 +355,237 @@ int main()
         /* string split */
         cout << "######################string split######################" << endl;
         cout << endl;
+        string s="if i cloud save the time in a bottle, the first things that i'd like to do.";
+        string d=" ";
+        vector<string> a=split(s,d);
+        for(string b:a)
+            cout<<b<<"\n";
+    }
+    {
+        /* lower/upper bound */
+        cout << "######################lower/upper bound######################" << endl;
+        cout << endl;
+        vector<int> v;
+        int a[5]={1,2,2,2,3};//배열이나 벡터가 정렬되어 있어야함.
+        for(int i=0;i<5;i++)
+        {
+            v.push_back(a[i]);
+        }
+        int x=2;
+        int c=(int)(upper_bound(v.begin(),v.end(),x) - lower_bound(v.begin(),v.end(),x));
+        int f=(int)(lower_bound(v.begin(),v.end(),x)-v.begin());
+        int t=(int)(upper_bound(v.begin(),v.end(),x)-v.begin());
+        int f2=*lower_bound(v.begin(),v.end(),x);
+        int t2=*upper_bound(v.begin(),v.end(),x);
+        printf("%d의 개수: %d, 시작되는점: %d 끝나는점: %d\n",x,c,f,t);
+        printf("lower bound start point value: %d, upper bound start point value: %d\n",f2, t2);
+
+        c=(int)(upper_bound(a,a+5,x)-lower_bound(a,a+5,x));
+        f=(int)(lower_bound(a,a+5,x)-a);
+        t=(int)(upper_bound(a,a+5,x)-a);
+        f2=*lower_bound(a,a+5,x);
+        t2=*upper_bound(a,a+5,x);
+        printf("%d의 개수: %d, 시작되는점: %d 끝나는점: %d\n",x,c,f,t);
+        printf("lower bound start point value: %d, upper bound start point value: %d\n",f2, t2);
         
+        typedef long long ll;
+        vector<int> aa;
+        for(int i=1;i<=3;i++)
+            aa.push_back(i);
+        for(int i=5;i<=10;i++)
+            aa.push_back(i);
+        cout<<lower_bound(aa.begin(),aa.end(),4)-aa.begin()<<endl;
+
+        aa.clear();
+        for(int i=2;i<=5;i++)
+            aa.push_back(i);
+        aa.push_back(7);
+        cout<<upper_bound(aa.begin(),aa.end(),6)-aa.begin()<<endl;
+        cout<<lower_bound(aa.begin(),aa.end(),6)-aa.begin()<<endl;
+        cout<<upper_bound(aa.begin(),aa.end(),9)-aa.begin()<<endl;
+        cout<<lower_bound(aa.begin(),aa.end(),9)-aa.begin()<<endl;
+        cout<<upper_bound(aa.begin(),aa.end(),0)-aa.begin()<<endl;
+        cout<<lower_bound(aa.begin(),aa.end(),0)-aa.begin()<<endl;
+    }
+    {
+        /* rotate */
+        cout << "######################rotate######################" << endl;
+        cout << endl;
+        vector<int> v;
+        for(int i=1;i<10;++i) v.push_back(i);
+        //first, middle, last
+        // rotate(v.begin(), v.begin()+v.size()+1, v.end());
+        //2 3 4 5 6 7 8 9 1
+        rotate(v.begin(), v.begin()+v.size()-1, v.end()); 
+        //9 1 2 3 4 5 6 7 8
+        for(std::vector<int>::iterator it=v.begin();it!=v.end();++it)
+            cout<<' '<<*it;
+        cout<<'\n';
+    }
+    {
+        /* accumulate */
+        cout << "######################accumulate######################" << endl;
+        cout << endl;
+        vector<int>v={1,2,3,4,5,6,7,8,9,10};
+        int sum=accumulate(v.begin(),v.end(),0);
+        cout<<sum<<endl;
+    }
+    {
+        /* max element */
+        cout << "######################max element######################" << endl;
+        cout << endl;
+        vector<int> v={1,2,3,4,5,6,7,8,9,10};
+        int a=*max_element(v.begin(),v.end());
+        cout<<a<<endl;
+    }
+    {
+        /* array ratate */
+        cout << "######################array ratate######################" << endl;
+        cout << endl;
+        vector<int>v;
+        for(int i=1;i<=6;i++) v.push_back(i);
+        int i=1;
+        int temp=v[i];
+        v[i]=v[i+1];
+        v[i+1]=v[i+2];
+        v[i+2]=v[i+3];
+        v[i+3]=temp;
+        for(int i:v)cout<<i<<' ';
+        cout<<endl;
 
     }
     {
-        /* algo */
+        /* callby */
         cout << "######################algo######################" << endl;
         cout << endl;
+        /*
+        void b(int a)
+        {
+            a = 2;
+        }
+        void b2(int & a)
+        {
+            a = 2;
+        }
+        void b3(int * a)
+        {
+            *a = 3;
+        }
+        int a = 1;
+        b(a);
+        printf("%d\n", a); // 1
+        b2(a);
+        printf("%d\n", a); // 2
+        b3(&a);
+        printf("%d\n", a); // 3
+        
+        */
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* 문자열 찾기 */
+        cout << "######################문자열 찾기######################" << endl;
         cout << endl;
+        // if(a.find("FBI")!=string::npos)
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* n진법 변환 */
+        cout << "######################n진법 변환######################" << endl;
         cout << endl;
+        vector<int>v;
+        int n=100;
+        int b=2;
+        while(n>1)
+        {
+            v.push_back(n%b);
+            n/=b;
+        }
+        if(n==1)v.push_back(1);
+        reverse(v.begin(),v.end());
+        for(int a:v)
+        {
+            if(a>=10)cout<<char(a+55);
+            else cout<<a;
+        }
+        cout<<endl;
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* decendsing ordet*/
+        cout << "######################decendsing order######################" << endl;
         cout << endl;
+        vector<int>v;
+        for(int i=1;i<=6;i++)v.push_back(i);
+        sort(v.begin(),v.end(),greater<int>());
+        for(int i:v)cout<<i<<' ';
+        cout<<endl;
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* custom order */
+        cout << "######################custom order######################" << endl;
         cout << endl;
+        vector<int> v;
+        for(int i=1;i<=6;i++)v.push_back(i);
+        sort(v.begin(),v.end(),cmp);
+        for(int i:v)cout<<i<<' ';
+        cout<<endl;
+
     }
     {
-        /* algo */
-        cout << "######################algo######################" << endl;
+        /* printf */
+        cout << "######################printf######################" << endl;
         cout << endl;
+        double a=1.23456789;
+        int b=2;
+        printf("%.6lf\n",a);
+        printf("%03d\n",b);//03보다 1개 적게 출력
+
+    }
+    {
+        /* 2d arr modify */
+        cout << "######################2d arr modify######################" << endl;
+        cout << endl;
+        int a[3][5]={
+            {1,2,3,4,5},
+            {6,7,8,9,10},
+            {11,12,13,14,15}
+        };
+        b(a);
+        cout<<a[0][4]<<endl;
+    }
+    {
+        /* 2d arr roatate */
+        cout << "######################2d arr roatate######################" << endl;
+        cout << endl;
+        /*
+        void rotate90(vector<vector<int>> &key)
+        {
+            int m = key.size();
+            vector<vector<int>> temp(m, vector<int>(m, 0));
+            for(int i = 0; i < m; i++)
+            {
+                for(int j = 0; j < m; j++)
+                {
+                    temp[i][j] = key[j][m - i - 1];
+                }
+            }
+            key = temp;
+            return;
+        }
+        // 오른쪽으로 90도
+        void rotate90(vector<vector<int>> &key){
+            int m = key.size();
+            vector<vector<int>> temp(m, vector<int>(m, 0));
+            for(int i = 0; i < m; i++)
+            {
+                for(int j = 0; j < m; j++)
+                {
+                    temp[i][j] = key[m - j - 1][i];
+                }
+            }
+            key = temp;
+            return;
+        }
+        
+        */
     }
     return 0;
 }
