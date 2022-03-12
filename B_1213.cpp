@@ -14,7 +14,7 @@ int main()
     {
         if (cnt[i])
         {
-            if (cnt[i] & 1)
+            if (cnt[i] & 1) // bit 연산
             {
                 mid = char(i);
                 flag++;
