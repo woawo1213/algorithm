@@ -9,11 +9,11 @@
 using namespace std;
 typedef long long ll;
 ll a, b, c;
-ll go(ll a, ll b)
+ll calc(ll a, ll b)
 {
     if (b == 1)
         return a % c;
-    ll _c = go(a, b / 2);
+    ll _c = calc(a, b / 2);
     _c = (_c * _c) % c;
     if (b % 2)
         _c = (_c * a) % c;
@@ -25,6 +25,6 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
     cin >> a >> b >> c;
-    cout << go(a, b) << "\n";
+    cout << calc(a, b) << "\n";
     return 0;
 }
