@@ -7,8 +7,6 @@ int n, m, a[max_n][max_n], visited[max_n][max_n], y, x;
 int main()
 {
     scanf("%d %d", &n, &m);
-    // cin >> sy >> sx;
-    // cin >> ey >> ex;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
