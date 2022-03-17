@@ -1,42 +1,59 @@
-#include <bits/stdc++.h>
+#include <cstdio>
+#include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <stack>
 using namespace std;
-int dy[4] = {-1, 0, 1, 0};
-int dx[4] = {0, 1, 0, -1};
-int a[101][101];
-bool visited[101][101];
-int m, n, k, nx, ny,ret,lx,ly,rx,ry;
-void dfs(int y, int x)
+int _map[104][104], m, n, k, x1, x2, y1, y2;
+const int dy[4] = {-1, 0, 1, 0};
+const int dx[4] = {0, 1, 0, -1};
+vector<int> ret;
+int dfs(int y, int x)
 {
-    visited[y][x] == 1;
+    _map[y][x] = 1;
+    int _ret = 1;
     for (int i = 0; i < 4; i++)
     {
-        ny = y + dy[i];
-        nx = x + dx[i];
-        if (ny < 0 || nx < 0 || ny >= n || nx >= m)
+        int ny = y + dy[i];
+        int nx = x + dx[i];
+        if (ny < 0 || ny >= m || nx < 0 || nx >= n || _map[ny][nx] == 1)
             continue;
-        if (a[ny][nx] == 1 && !visited[ny][nx])
-            dfs(ny, nx);
+        _ret += dfs(ny, nx);
     }
+    return _ret;
 }
-
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-
     cin >> m >> n >> k;
-    for(int i=0;i<3;i++)
+    for (int i = 0; i < k; i++)
     {
-        cin >> lx >>ly >> rx >> ry;
-        for(int l=lx;l<rx;l++)
+        cin >> x1 >> y1 >> x2 >> y2;
+        for (int x = x1; x < x2; x++)
         {
-            for(int h=ly;h<ry;h++)
-                a[h][l]=1;
+            for (int y = y1; y < y2; y++)
+            {
+                _map[y][x] = 1;
+            }
         }
     }
-
-
-
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (_map[i][j] != 1)
+            {
+                ret.push_back(dfs(i, j));
+            }
+        }
+    }
+    sort(ret.begin(), ret.end());
+    cout << ret.size() << "\n";
+    for (int _ret : ret)
+        cout << _ret << "\n";
     return 0;
 }
