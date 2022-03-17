@@ -4,7 +4,7 @@ int dy[4] = {-1, 0, 1, 0};
 int dx[4] = {0, 1, 0, -1};
 int a[101][101];
 bool visited[101][101];
-int m, n, k, nx, ny;
+int m, n, k, nx, ny,ret,lx,ly,rx,ry;
 void dfs(int y, int x)
 {
     visited[y][x] == 1;
@@ -26,6 +26,17 @@ int main()
     cout.tie(NULL);
 
     cin >> m >> n >> k;
+    for(int i=0;i<3;i++)
+    {
+        cin >> lx >>ly >> rx >> ry;
+        for(int l=lx;l<rx;l++)
+        {
+            for(int h=ly;h<ry;h++)
+                a[h][l]=1;
+        }
+    }
+
+
 
     return 0;
 }

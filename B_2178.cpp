@@ -14,6 +14,7 @@ int main()
             scanf("%1d", &a[i][j]);
         }
     }
+
     queue<pair<int, int>> q;
     visited[0][0] = 1;
     q.push({0, 0});
