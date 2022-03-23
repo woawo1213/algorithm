@@ -1,10 +1,23 @@
-#include <string>
-#include <vector>
+//음양더하기
+#include<bits/stdc++.h>
 
 using namespace std;
 
-vector<string> solution(vector<string> strings, int n)
-{
-    vector<string> answer;
+int solution(vector<int> absolutes, vector<bool> signs) {
+    int answer = 0;
+    
+    for(int i=0;i<absolutes.size();i++)
+    {
+        if(signs[i]==true)
+        {
+            answer+=absolutes[i];
+        }
+        else
+        {
+            answer+=absolutes[i]*-1;
+        }
+    }
+    
+    
     return answer;
 }
