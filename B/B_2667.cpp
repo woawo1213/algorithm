@@ -3,61 +3,57 @@
 using namespace std;
 int dy[4] = {-1, 0, 1, 0};
 int dx[4] = {0, 1, 0, -1};
-int nx, ny, n, ret, count_apt;
+int y, x, ny, nx, n, ret, cnt;
 vector<int> apt;
-int b[26][26];
+int a[26][26];
 bool visited[26][26];
 void dfs(int y, int x)
 {
     visited[y][x] = 1;
+    cnt++;
     for (int i = 0; i < 4; i++)
     {
         ny = y + dy[i];
         nx = x + dx[i];
         if (ny < 0 || nx < 0 || ny >= n || nx >= n)
             continue;
-        if (b[ny][nx] == 0 && !visited[ny][nx])
-            {
-                count_apt++;
-                dfs(ny, nx);
-            }
+        if (a[ny][nx] == 1 && !visited[ny][nx])
+        {
+            dfs(ny, nx);
+        }
     }
-    apt.push_back(count_apt);
-    count_apt=0;
     return;
 }
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
     cin >> n;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            cin >> b[i][j];
+            scanf("%1d", &a[i][j]);
         }
     }
 
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        for(int j=0;j<n;j++)
+        for (int j = 0; j < n; j++)
         {
-            if (b[i][j] == 1 && !visited[i][j])
+            if (a[i][j] == 1 && !visited[i][j])
             {
                 ret++;
+                cnt = 0;
                 dfs(i, j);
+                apt.push_back(cnt);
             }
         }
     }
-    sort(apt.begin(),apt.end());
+    sort(apt.begin(), apt.end());
 
     cout << ret << "\n";
 
-    for(auto a:apt)
-        cout<<a<<"\n";
+    for (auto a : apt)
+        cout << a << "\n";
     return 0;
 }
