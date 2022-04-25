@@ -4,7 +4,7 @@
 using namespace std;
 string s;
 int arr[26];
-int maxi = 0, cnt = 0, index = 0;
+int maxi = 0, cnt = 0, idx = 0;
 vector<int> ss;
 int main()
 {
@@ -26,14 +26,14 @@ int main()
     {
         if (arr[i] == maxi)
         {
-            index = i;
+            idx = i;
             cnt++;
         }
     }
 
     if (cnt == 1)
     {
-        cout << (char)(index + 65)
+        cout << (char)(idx + 65)
              << "\n";
     }
     else
