@@ -10,13 +10,11 @@ vector<int> solution(vector<int> arr)
         answer.push_back(-1);
     else
     {
-        int tmp = arr[0];
-        for (int i = 1; i < arr.size(); i++)
-        {
-            tmp = min(tmp, arr[i]);
-        }
-        auto it = remove(arr.begin(), arr.end(), tmp);
-        arr.resize(it - arr.begin());
+        int min=*min_element(arr.begin(),arr.end());
+        for(auto e:arr){
+            if(e!=min)
+                answer.push_back(e);
+        }        
     }
 
     return answer;

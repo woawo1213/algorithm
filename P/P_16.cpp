@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-bool answer = true;
+bool answer=true;
 bool solution(string s)
 {
     if (s.length() != 4 && s.length() != 6)
@@ -18,5 +18,5 @@ bool solution(string s)
         }
     }
 
-    return true;
+    return answer;
 }
